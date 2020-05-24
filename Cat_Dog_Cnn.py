@@ -54,7 +54,7 @@ test_set = test_datagen.flow_from_directory(
         target_size=(64, 64),
         batch_size=32,
         class_mode='binary')
-model.fit(
+mode = model.fit(
         training_set,
         steps_per_epoch=100,
         epochs=5,
@@ -63,5 +63,5 @@ model.fit(
 
 model.save('Cnn_Model.h5')
 
-print(history.history['accuracy'][0] * 100)
+print(mode.history['accuracy'][0] * 100)
         
