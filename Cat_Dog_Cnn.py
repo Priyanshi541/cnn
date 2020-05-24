@@ -65,8 +65,5 @@ model.fit(
 
 model.save('Cnn_Model.h5')
 
-print(history.history['accuracy'][0] * 100)
-f=open("accuracy.txt",'w')
-f.write('%d' % int(history.history['accuracy'][0] * 100)
-f.close()
+x = print(history.history['accuracy'][0] * 100)
         
