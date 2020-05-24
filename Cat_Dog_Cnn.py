@@ -1,5 +1,3 @@
-
-
 from keras.layers import Convolution2D
 
 from keras.layers import MaxPooling2D
@@ -58,10 +56,10 @@ test_set = test_datagen.flow_from_directory(
         class_mode='binary')
 model.fit(
         training_set,
-        steps_per_epoch=8000,
+        steps_per_epoch=100,
         epochs=5,
         validation_data=test_set,
-        validation_steps=800)
+        validation_steps=75)
 
 model.save('Cnn_Model.h5')
 
