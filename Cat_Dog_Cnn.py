@@ -59,8 +59,13 @@ test_set = test_datagen.flow_from_directory(
 model.fit(
         training_set,
         steps_per_epoch=8000,
-        epochs=25,
+        epochs=5,
         validation_data=test_set,
         validation_steps=800)
 
-model.save('my.h5')
+model.save('Cnn_Model.h5')
+
+print(history.history['accuracy'][0] * 100)
+f = open('accuracy.txt' , 'w')
+f.write('%d' ,  % int(history.history['accuracy'][0] * 100)
+f.close()
