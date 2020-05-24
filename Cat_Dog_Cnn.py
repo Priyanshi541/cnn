@@ -10,29 +10,23 @@ from keras.models import Sequential
 
 model = Sequential()
 
-model.add(Convolution2D (filters=32, kernel_size=(3,3), activation='relu',input_shape=(64, 64, 3)) )
+neurons1 = 512
 
-model.summary()
+epochs1 = 5
 
-model.add(MaxPooling2D(pool_size=(2, 2)))
-
-model.add(Convolution2D(filters=32, kernel_size=(3,3), activation='relu'))
+model.add(Convolution2D (filters = 32, kernel_size=(3,3), activation='relu',input_shape=(64, 64, 3)) )
 
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
-model.summary()
+model.add(Convolution2D(filters = 32, kernel_size=(3,3), activation='relu'))
+
+model.add(MaxPooling2D(pool_size=(2, 2)))
 
 model.add(Flatten())
 
-model.summary()
-
-model.add(Dense(units=128, activation='relu'))
-
-model.summary()
+model.add(Dense(units= neurons1 , activation='relu'))
 
 model.add(Dense(units=1, activation='sigmoid'))
-
-model.summary()
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
@@ -57,13 +51,13 @@ test_set = test_datagen.flow_from_directory(
 mode = model.fit(
         training_set,
         steps_per_epoch=100,
-        epochs=5,
+        epochs = epochs1,
         validation_data=test_set,
         validation_steps=75)
 
 model.save('Cnn_Model.h5')
 
-print(mode.history['accuracy'][0] * 100)
+print(mode.history['/root/workspace/cur_accuracy'][0] * 100)
 file = open('accuracy.txt' , 'w')
 file.write('%d' %int(mode.history['accuracy'][0] * 100))
 file.close()
