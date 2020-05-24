@@ -64,4 +64,6 @@ mode = model.fit(
 model.save('Cnn_Model.h5')
 
 print(mode.history['accuracy'][0] * 100)
-        
+file = open('accuracy.txt' , 'w')
+file.write('%d' %int(mode.history['accuracy'][0] * 100))
+file.close()
