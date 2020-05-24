@@ -66,7 +66,7 @@ model.fit(
 model.save('Cnn_Model.h5')
 
 print(history.history['accuracy'][0] * 100)
-f = with open("/root/workspace/accuracy.txt",'w')
+f=open("accuracy.txt",'w')
 f.write('%d' % int(history.history['accuracy'][0] * 100)
 f.close()
         
