@@ -65,5 +65,5 @@ model.fit(
 
 model.save('Cnn_Model.h5')
 
-x = print(history.history['accuracy'][0] * 100)
+print(history.history['accuracy'][0] * 100)
         
