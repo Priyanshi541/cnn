@@ -22,6 +22,7 @@ model.add(Convolution2D(filters = 32, kernel_size=(3,3), activation='relu'))
 
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
+
 model.add(Flatten())
 
 model.add(Dense(units= neurons1 , activation='relu'))
@@ -57,7 +58,7 @@ mode = model.fit(
 
 model.save('Cnn_Model.h5')
 
-print(mode.history['accuracy'][0] * 100)
+print(mode.history['accuracy'][epochs1-1] * 100)
 file = open('/root/workspace/cur_accuracy.txt' , 'w')
-file.write('%d' %int(mode.history['accuracy'][0] * 100))
+file.write('%d' %int(mode.history['accuracy'][epochs1-1] * 100))
 file.close()
